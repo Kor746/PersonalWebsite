@@ -1,0 +1,723 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-Mar-2016, 12:36:42 PM
+    Author     : Daniel
+*/
+/* ==========================  BODY ======================== */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, 
+fieldset, legend, input, textarea, p, blockquote, th, td
+{
+    margin: 0;
+    padding: 0;
+    
+}
+html, body {
+    overflow-x: hidden;
+}
+body {
+    position: relative;
+    color: #333;
+    background: #fff;
+    font: 14px/22px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* =======================GENERALS==============================*/
+
+h1 { font-size: 17px; line-height: 20px; font-weight: bold; }
+h2 { font-size: 18px; line-height: 27px; }
+h3 { font-size: 14px; line-height: 22px; }
+h4 { font-size: 13px; line-height: 23px; }
+h6 { font-size: 12px; line-height: 14px; }
+
+
+a, a:visited { 
+    color: #333; text-decoration: none; outline: 0;
+}
+
+a:hover, a:focus { 
+    color: #000; 
+}
+
+p a, p a:visited { 
+    line-height: inherit; 
+}
+
+::selection {
+    background: #df4244;
+    color: #fff;
+    text-shadow: none;
+}
+/* Mozilla compat */
+::-moz-selection {
+    background: #df4244;
+    color: #fff;
+    text-shadow: none;
+}
+em, .italic { font-style: italic; }
+strong { font-weight: bold; }
+small { font-size: 80%; }
+
+.font-color-primary {
+    color: #44bbaa;
+}
+.font-color-gray {
+    color: #656565;
+}
+.font-color-black {
+    color: #000000
+}
+
+img {
+    max-width: 100%;
+}
+
+h3 {
+    font: normal 300 12px/22px 'Open Sans', "HelveticaNeue", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+h5 {
+    font: normal 11px/21px 'Open Sans', "HelveticaNeue", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+/* ========================= TOP MENU BAR ========================*/
+
+
+#section-menu
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    overflow: visible;
+    font: normal 16px/24px 'Open Sans', "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+#section-menu a {
+    color: #fff;
+}
+
+#top-inner-menu 
+{
+    background: #111;
+    line-height: 0;
+    text-align: center;
+}
+/* Default menu*/
+#section-menu ul#nav {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid #222;
+    zoom: 1;
+    *display: inline;
+}
+#section-menu ul#nav > li {
+    display: block;
+    float: left;
+    padding: 0;
+    width: 80px;
+}
+
+#section-menu ul#nav a {
+    display: block;
+    font: normal 11px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    padding: 18px 20px 18px 20px;
+    border-left: 1px solid #222;
+}
+#section-menu ul#nav a:hover {
+    background: #00CDAC; /* #222*/
+    text-decoration: none;
+    border-left: 1px solid #111;
+}
+#section-menu ul#nav .active a {
+    background: #df4244;
+    border-left: 1px solid #111;
+}
+
+#section-menu ul#nav .active a:hover {
+    background: #df4244;
+}
+@media only screen and (max-width: 460px) {
+    #section-menu ul#nav h1 {
+        width: 25px;
+    }
+    #section-menu ul#nav a {
+        padding: 12px 12px 12px 12px;
+    }
+}
+
+
+/* ===========================Main Header ================================ */
+
+#section-intro #section-background {
+    overflow: hidden;
+    position: relative;
+}
+
+#section-intro {
+    position:relative;
+    left:0px;
+    top:0px;
+    z-index:10;
+   
+}
+  
+div#mybg {
+    background: #df4244;
+    position: fixed;
+    top: -100px;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    background-size: cover;
+    background-attachment: fixed;
+    background-origin: content-box;
+}
+
+#section-background {
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+/******************************* About Me *****************************/
+@media all and (max-width: 500px) {
+    div#section-about {
+        padding-bottom: 200px;
+        
+    }
+    #section-about .about-me{
+        overflow-wrap:break-word;
+        width: 280px;
+        text-align: justify;
+       
+    }
+}
+
+#section-about, #section-resume, #section-contact, #section-footer {
+    position: relative;
+    z-index: 20;
+}
+
+#section-about {
+    height:400px;
+    color: #fff;
+    background: rgb(15, 42, 60);
+    padding: 80px 0;
+    
+}
+#section-about h1 {
+    color: #df4244;
+    
+}
+
+#section-about h3 span.underline {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #fff; line-height:29px;
+}
+p.about-me {
+    color: #fff;
+    font: normal 13px/29px 'museo_slab500', 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a.link-print, a.link-pdf, a.link-li {
+    color: #fff;
+    font: normal 11px/21px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 8px 0 8px 40px;
+    margin-bottom: 10px;
+}
+
+a.link-print {
+    background: url('') no-repeat left center; opacity:0.5;
+}
+
+a.link-pdf {
+    background: url('') no-repeat left center; opacity:0.5;
+}
+
+a.link-li {
+    background: url('') no-repeat left center; opacity:0.5;
+}
+a.link-li:hover {
+    opacity:1;
+    background: #df4244;
+}
+a.link-print:hover {
+    opacity:1;
+    background: #df4244;
+}
+a.link-pdf:hover {
+    opacity:1;
+    background: #df4244;
+}
+
+/********************************** Resume ********************************/
+
+#section-resume {
+    color: #666;
+    background: #fff;
+    font: normal 16px/26px 'PT Serif', Georgia, serif;
+    padding: 60px 0 20px 0;
+}
+
+#section-resume .section-title {
+    color: #44bbaa;
+    padding: 50px 0;
+    display: none;
+}
+
+#section-resume h2 {
+    color: #000;
+    font: normal 300 12px/28px 'Open Sans', "HelveticaNeue", "Helvetica Neue", 
+        Helvetica, Arial, sans-serif;
+}
+
+#section-resume h3 {
+    color: #000;
+    font: normal 300 12px/28px 'Open Sans', "HelveticaNeue", "Helvetica Neue",
+        Helvetica, Arial, sans-serif;
+    padding-top: 16px;
+    text-transform: uppercase;
+}
+
+#section-resume h3.no-padding {
+    padding: 0;
+}
+
+
+#section-resume h3 span.underline {
+    padding-bottom: 3px;
+    border-bottom: 0px solid #777;
+}
+
+#section-resume h5 {
+    color: #ccc;
+}
+
+#section-resume h5+p {
+    margin-bottom: 15px;
+}
+
+#section-resume .block {
+    margin-bottom: 40px;
+}
+
+#section-resume .block.last {
+    margin-bottom: 0px;
+}
+
+#section-resume #box-profile a.link-email,
+#section-resume #box-profile a.link-phone {
+    color: #666;
+    font: normal 15px/25px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#section-resume #box-profile a.link-email:hover,
+#section-resume #box-profile a.link-phone:hover {
+    color: #44bbaa;
+}
+
+#section-resume .item {
+    margin-bottom: 10px;
+}
+
+#section-resume .item > div {
+    padding-top: 15px;
+}
+
+#section-resume .item.no-border > div,
+#section-resume .item > div.no-border { 
+    border-top: none;
+}
+
+#section-resume .item h4 {
+    color: #df4244;
+    font: normal 14px/24px 'PT Serif', Georgia, serif;
+}
+
+#section-resume .item div h4 + p {
+    color: #666;
+    font: normal 14px/24px 'PT Serif', Georgia, serif;
+    margin-top: 0;
+}
+
+#section-resume .item div p.desc {
+    color: #656565;
+    font: normal 13px/23px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 15px;
+}
+
+#section-resume .item div > p.date {
+    color: #444;
+    font: normal 13px/23px 'PT Serif', Georgia, serif;
+}
+
+#section-resume .item div > p.date span.label {
+    display: inline-block;
+    color: #aaa;
+    background: #111;
+    padding: 4px 8px;
+    margin-top: 6px;
+    font: normal 10px/20px 'Open Sans', "HelveticaNeue", "Helvetica Neue", 
+        Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media all and (max-width: 350px) {
+    #section-resume .item div p.desc {
+        overflow-wrap: break-word;
+        width: 280px;
+        
+    }
+}
+/* SKILLS */
+
+
+#section-resume .container .block .contain .item h1
+{
+    color: #00CDAC;
+    font: normal 18px/25px 'PT Serif', Georgia, serif;
+    text-align: center;
+}
+#section-resume .container .block .contain .item p
+{
+    padding-top: 10px;
+    word-wrap: break-word;
+    font: normal 14px/15px 'Open Sans', "HelveticaNeue", "Helvetica Neue", 
+        Helvetica, Arial, sans-serif; 
+    color: white;   
+}
+#section-resume .container .block .contain .item
+{
+    background: #df4244;
+    padding: 20px;
+    margin: 5%;
+    border-radius: 10px;
+    width: 15%;
+    display: inline-block;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    vertical-align: top;
+    
+}
+
+/* PORTFOLIO */
+
+.section-portfolio { 
+    width:100%; 
+    text-align: center;
+    margin-bottom: -20px; 
+}
+.section-portfolio a {     
+    display: block; 
+    background: #3296d1;
+    padding: 45px 0; 
+    transition: all 0.5s ease 0s; 
+}
+.section-portfolio .work a:hover {
+    background:#df4244; 
+    opacity: 1;
+    padding: 60px 0; 
+    transition: all 0.5s ease 0s; 
+}
+.section-portfolio .work img { 
+    max-width:100%; 
+    max-height: 100px;
+    
+}
+
+/* CONTACT FORM */
+
+/* HTML5 Placeholder */
+::-webkit-input-placeholder {
+    color: #df4244;
+}
+
+:-moz-placeholder {  
+    color: #df4244;
+}
+@media all and (max-width: 322px)
+{
+    #section-contact {
+        
+        width:300px;
+        word-wrap:break-word;
+        
+    }
+    #section-contact input#contactName{
+        width:200px;
+        margin-right:10px;
+    }
+    #section-contact input#contactEmail{
+        width:200px;
+        margin-right:10px;
+    }
+    #section-contact textarea#contactMessage{
+        width:200px;
+        margin-right:10px;
+    }
+    #section-contact input#contactCaptcha{
+        width:200px;
+        margin-right:10px;
+    }
+    #section-contact .submit {
+        margin-left: 50px;
+    }
+}
+#section-contact {
+    margin: 0;
+    height: 580px;
+    color: #fff;
+    padding: 0px 0;
+    background: linear-gradient(to top,#02AAB0, #00CDAC) center center no-repeat; 
+    padding: 80px 0;
+}
+
+#section-contact h3 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+#section-contact h3 span.underline {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #333;
+}
+
+#section-contact p.desc {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+#section-contact form {
+    margin-bottom: 40px;
+}
+#section-contact fieldset {
+    border: none;
+}
+
+#section-contact form p,
+#section-contact label,
+#section-contact legend { 
+    font: normal 13px/23px 'Open Sans', "Helvetica Neue", Helvetica, Arial, 
+        sans-serif;
+}
+
+#section-contact label {
+    display: inline-block;
+    float: left;
+    width: 155px;
+    margin: 6px 0;
+    color: #000;
+    font-weight: bold;
+}
+
+#section-contact input, 
+#section-contact textarea, 
+#section-contact select { 
+    width: 280px; 
+    padding: 14px 20px; 
+    color: #eee; 
+    background: #333;
+    margin: 0 0 35px 0; 
+    border: 0;
+    outline: none;
+}
+
+#section-contact input:focus, 
+#section-contact textarea:focus, 
+#section-contact select:focus { 
+    color: #fff;
+    background-color: #3296d1;
+}
+
+#section-contact button.submit {
+    font: bold 20px/30px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+    cursor: pointer;
+    color:#fff;
+    background:#df4244;
+    padding: 20px 28px;
+    border: none;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#section-contact button.submit:hover { 
+    color: #df4244;
+    background: #fff; 
+}
+
+#section-contact span.required { 
+    color: #df4244;
+    font-size: 13px;  
+} /* Select the color of the * if the field is required. */
+
+
+#contact-warning,
+#contact-success {
+    font: normal 12px/23px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#contact-warning {
+    display: none;
+    color: #fff;
+    background: #dd3333;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+}
+
+#contact-success {
+    display: none;
+    color: #77aa44;
+    background: #111;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+}
+
+/* Recommendations */
+
+#box-recommendations .item {
+    margin-top: 30px;
+} 
+
+#box-recommendations h3 {
+    margin-bottom: 0; 
+}
+
+#box-recommendations blockquote p.comment {
+    color: #eee;
+    font: italic 15px/24px  'PT Serif', Georgia, serif;
+}
+
+#box-recommendations blockquote h4 {
+    color: #424242;
+    font: normal 13px/24px  'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+}
+
+#box-recommendations blockquote  p.position {
+    color: #666;
+    font: normal 11px/21px 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0px;
+}
+
+/* FOOTER */
+@media all and (max-width: 800px) {
+    #section-footer .container {
+        margin-top: 300px;
+    }
+    #section-contact {
+        height:1000px;
+    }
+    
+}
+
+#section-footer {
+    color: #777;
+    background: #111;
+    font: normal 13px/23px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#section-footer p {
+    margin-top: 32px;
+}
+
+#section-footer a { 
+    color: #666; 
+}
+
+#section-footer a:hover { 
+    color: #df4244; 
+}
+
+#section-footer ul#social {
+    float: right;
+    border-left: 1px solid #111;
+}
+
+#section-footer ul#social li {
+    display: inline-block;
+    float: left;
+}
+
+#section-footer ul#social li a {
+    display: block;
+    line-height: 0;
+    padding: 30px;
+    width: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    #section-footer ul#social li a {
+        background: #3296d1;
+    }
+
+}
+/* DEFAULT
+#section-footer ul#social li a:hover {
+    background: #df4244;
+}
+*/
+#section-footer ul#social li.twitter a:hover {
+    background: #df4244;
+    
+}
+#section-footer ul#social li.facebook a:hover {
+    background: #df4244;
+}
+#section-footer ul#social li.linkedin a:hover {
+    background: #df4244;
+}
+/* Tool tip for social media links */
+
+.tooltip {
+  text-decoration: none;
+}
+
+.tooltip:hover {
+  position: relative;
+  right: 100px;
+ 
+}
+/* Tooltip on Top */
+.tooltip-top[data-tooltip]:hover:after {
+  content: attr(data-tooltip);
+  padding: 4px 8px;
+  position: absolute;
+  left: 0; 
+  bottom: 100%;
+  white-space: nowrap; 
+  z-index: 20;
+  font-weight:  bold;
+  background-color: #df4244;
+  color: #3296d1;
+}
+

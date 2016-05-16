@@ -1,0 +1,13 @@
+{
+    "name": "PersonalWebsite",
+    "version": "1.0.0",
+    "main": "style.css",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
