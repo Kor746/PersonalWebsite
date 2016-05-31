@@ -1,20 +1,21 @@
 <?php
-if(isset($_POST['Submit']))
+if(filter_input(INPUT_POST, 'submit'))
 {
 	
-	$name= trim($_POST['contactName']," ");
-	$email= "From: ".trim($_POST['contactEmail']," ")."\r\n";
-	$message= trim($_POST['contactMessage']," ");
-	$captcha= trim($_POST['contactCaptcha']," ");
-	$to= 'daniel@incubateinstitute.org';
-	if($name != "" OR $email != "" OR $message != "" OR $captcha != 2)
+	$name = trim(filter_input(INPUT_POST, 'contactName')," ");
+	$email = "From:" . trim(filter_input(INPUT_POST, 'contactEmail')," ");
+	$message = trim(filter_input(INPUT_POST, 'contactMessage')," ");
+	$captcha = trim(filter_input(INPUT_POST, 'contactCaptcha')," ");
+	$to = 'danlee746@hotmail.ca';
+	if(!empty($name) AND !empty($email) AND !empty($message) AND $captcha == 2)
 	{
 		if(filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-			mail($to,$name,$message,$email);	
+			mail($to,$name,$message,$email);
+                        header("Location:index.html");
 		}
 		else {
-			die("E-mail must be in the proper format");
+			die("Incorrect E-mail Format!");
 		}
 		
 	}
@@ -22,9 +23,6 @@ if(isset($_POST['Submit']))
 	{
 		die("A required field is empty");
 	}
-
-	
 }
-
 
 ?>
