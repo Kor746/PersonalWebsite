@@ -414,14 +414,18 @@ a.link-pdf:hover {
     background: #df4244;
     padding: 20px;
     margin: 5%;
-    border-radius: 10px;
+    border-radius: 5px 60px 5px;
     width: 15%;
     display: inline-block;
     padding: 20px;
     width: 200px;
-    height: 200px;
+    height: 150px;
     vertical-align: top;
     
+}
+#section-resume .container .block .contain .item:hover {
+    opacity: 0.7;
+    background: black;
 }
 
 /* PORTFOLIO */
@@ -459,33 +463,37 @@ a.link-pdf:hover {
 :-moz-placeholder {  
     color: #df4244;
 }
-@media all and (max-width: 322px)
+@media all and (max-width: 400px)
 {
     #section-contact {
-        
-        width:300px;
-        word-wrap:break-word;
+       display:block;
+       word-wrap: break-word;
+       
         
     }
     #section-contact input#contactName{
-        width:200px;
+        width:180px;
         margin-right:10px;
+        
     }
     #section-contact input#contactEmail{
-        width:200px;
+        width:180px;
         margin-right:10px;
     }
-    #section-contact textarea#contactMessage{
-        width:200px;
+    #section-contact #contactMessage{
+        width:180px;
+        
         margin-right:10px;
+        
     }
     #section-contact input#contactCaptcha{
-        width:200px;
+        width:180px;
         margin-right:10px;
     }
     #section-contact .submit {
         margin-left: 50px;
     }
+    
 }
 #section-contact {
     margin: 0;
@@ -545,6 +553,7 @@ a.link-pdf:hover {
     margin: 0 0 35px 0; 
     border: 0;
     outline: none;
+    resize: none;
 }
 
 #section-contact input:focus, 
@@ -629,6 +638,9 @@ a.link-pdf:hover {
     letter-spacing: 0px;
 }
 
+#box-recommendations .item .official a:hover {
+    color: #df4244;
+}
 /* FOOTER */
 @media all and (max-width: 800px) {
     #section-footer .container {
@@ -716,8 +728,10 @@ a.link-pdf:hover {
   bottom: 100%;
   white-space: nowrap; 
   z-index: 20;
-  font-weight:  bold;
+  width: 90px;
+  font-weight: bold;
+  border-radius: 8px 0px 0px;
   background-color: #df4244;
-  color: #3296d1;
+  color: #fff;
 }
 
