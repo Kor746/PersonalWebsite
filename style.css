@@ -19,6 +19,7 @@ html, body {
     overflow-x: hidden;
 }
 body {
+    
     position: relative;
     color: #333;
     background: #fff;
@@ -463,13 +464,12 @@ a.link-pdf:hover {
 :-moz-placeholder {  
     color: #df4244;
 }
-@media all and (max-width: 400px)
+@media (max-width: 800px)
 {
     #section-contact {
-       display:block;
+       margin-bottom: -300px;
        word-wrap: break-word;
-       
-        
+               
     }
     #section-contact input#contactName{
         width:180px;
@@ -496,12 +496,15 @@ a.link-pdf:hover {
     
 }
 #section-contact {
-    margin: 0;
+    
     height: 580px;
     color: #fff;
     padding: 0px 0;
     background: linear-gradient(to top,#02AAB0, #00CDAC) center center no-repeat; 
-    padding: 80px 0;
+    padding: 0;
+    padding-top: 5%;
+    padding-bottom: 140px;
+    
 }
 
 #section-contact h3 {
