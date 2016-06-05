@@ -1,5 +1,5 @@
 <?php 
-
+require 'PHPMailerAutoload.php';
 if(isset($_POST['submit']))
 {
 
@@ -15,52 +15,41 @@ $cap = $_POST['contactCaptcha'];
 if($name != '' AND $email != '' AND $message != '' AND $cap == 2)
 {
 
-$params = array(
-    'api_user' => "$user",
-    'api_key' => "$pass",
-    'to' => "danlee746@hotmail.ca",
-    'subject' => "$subject",
-    'html' => "<html><head><title> Contact Form </title><body>
-    Name: $name\n<br>
-    Email: $email\n<br>
-    Subject: $subject\n<br>
-    Message: $message <body></title></head></html>",
-    'text' => "
-    Name: $name\n
-    Email: $email\n
-    Subject: $subject\n
-    $message",
-    'from' => $email,
-    
-);
+$mail = new PHPMailer;
 
-curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
-$request = $url.'api/mail.send.json';
+//$mail->SMTPDebug = 3;                          // Enable verbose debug output
 
-$session = curl_init($request);
-//curl use HTTP POST
-curl_setopt($session,CURLOPT_POST,true);
-//curl use body of POST
-curl_setopt($session,CURLOPT_POSTFIELDS,$params);
-//do not return header, only response
-curl_setopt($session,CURLOPT_HEADER,false);
-curl_setopt($session,CURLOPT_RETURNTRANSFER, true);
+$mail->isSMTP();                                        // Set mailer to use SMTP 
+$mail->Host = 'smtp.sendgrid.net';             // Specify main/backup SMTP servers 
+$mail->SMTPAuth = true;                           // Enable SMTP authentication 
+$mail->Username = $user;    // SMTP username 
+$mail->Password = $pass;    // SMTP password 
+$mail->SMTPSecure = 'tls';                        // Enable TLS/SSL encryption 
+$mail->Port = 587;                                      // TCP port to connect to
 
-//obtain response
-$response = curl_exec($session);
-curl_close($session);
+$mail->From = $email; 
+$mail->FromName = $name; 
+$mail->addAddress('danlee746@hotmail.ca', 'Boss');     // Add a recipient
 
+$mail->WordWrap = 50;                              // Set word wrap to 50 characters 
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'Here is the subject'; 
+$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+
+if(!$mail->send()) { 
+    echo 'Message could not be sent.'; 
+    echo 'Mailer Error: ' . $mail->ErrorInfo; 
+} else { 
+    echo 'Message has been sent'; 
+}
 header('Location:index.html');
-echo "<script type= 'text/javascript'> document.getElementById('contact-warning').style.visibility = 'hidden';";
-echo "<script type= 'text/javascript'> document.getElementById('contact-success').style.visibility = 'visible';</script>";
-exit();
 
-print_r($response);
 }
 }
 else {
     
-            
+         
     header('Location:index.html');
     echo "<script type= 'text/javascript'> document.getElementById('contact-success').style.visibility = 'hidden';";
     echo "<script type= 'text/javascript'> document.getElementById('contact-warning').style.visibility = 'visible';</script>";
