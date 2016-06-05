@@ -51,10 +51,19 @@ $response = curl_exec($session);
 curl_close($session);
 
 header('Location:index.html');
+echo "<script type= 'text/javascript'> document.getElementById('contact-warning').style.visibility = 'hidden';";
+echo "<script type= 'text/javascript'> document.getElementById('contact-success').style.visibility = 'visible';</script>";
 exit();
 
 print_r($response);
 }
+}
+else {
+    
+            
+    header('Location:index.html');
+    echo "<script type= 'text/javascript'> document.getElementById('contact-success').style.visibility = 'hidden';";
+    echo "<script type= 'text/javascript'> document.getElementById('contact-warning').style.visibility = 'visible';</script>";
 }
 ?>
 
