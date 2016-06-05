@@ -1,13 +1,19 @@
 <?php 
 
+if(isset($_POST['submit']))
+{
+
 $url = 'https://api.sendgrid.com/';
-$user = 'kor746';
+$user = 'azure_10f17c72120cc0aebfd1cc8e7fdb3271@azure.com';
 $pass = 'asdfasdf7';
 
 $name = $_POST['contactName'];
 $email = $_POST['contactEmail'];
 $subject = "Contacting Dan";
 $message = $_POST['contactMessage'];
+$cap = $_POST['contactCaptcha'];
+if($name != '' AND $email != '' AND $message != '' AND $cap == 2)
+{
 
 $params = array(
     'api_user' => "$user",
@@ -48,6 +54,9 @@ header('Location:index.html');
 exit();
 
 print_r($response);
+}
+}
 ?>
+
 
 
