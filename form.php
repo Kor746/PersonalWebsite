@@ -11,7 +11,7 @@ $email = $_POST['contactEmail'];
 $subject = "Contacting Dan";
 $message = $_POST['contactMessage'];
 $cap = $_POST['contactCaptcha'];
-if($name != '' AND $email != '' AND $message != '' AND $cap == 2)
+if($name != '' AND $email != '' AND $message != '')
 {
 
 $params = array(
@@ -48,16 +48,14 @@ print_r($response);
 
 
 header('Location:index.html');
-echo "<script type='text/javascript'> document.getElementById('contact-warning').style.visibility = 'hidden';";
-echo "document.getElementById('contact-success').style.visibility = 'visible';</script>";
+echo "<script type='text/javascript'> document.getElementById('contact-warning').style.display = 'none';";
+echo "document.getElementById('contact-success').style.display = 'initial';</script>";
 }
-}
-else {
-    
-         
+} else {
+        
     header('Location:index.html');
-    echo "<script type='text/javascript'> document.getElementById('contact-success').style.visibility = 'hidden';";
-    echo "document.getElementById('contact-warning').style.visibility = 'visible';</script>";
+    echo "<script type='text/javascript'> document.getElementById('contact-success').style.display = 'none';";
+    echo "document.getElementById('contact-warning').style.display = 'initial';</script>";
 }
 ?>
 
