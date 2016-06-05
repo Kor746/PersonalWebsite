@@ -1,11 +1,10 @@
 <?php 
-require 'PHPMailerAutoload.php';
-if(isset($_POST['submit']))
-{
-
 $url = 'https://api.sendgrid.com/';
 $user = 'azure_10f17c72120cc0aebfd1cc8e7fdb3271@azure.com';
 $pass = 'asdfasdf7';
+
+if(isset($_POST['submit']))
+{
 
 $name = $_POST['contactName'];
 $email = $_POST['contactEmail'];
@@ -14,9 +13,6 @@ $message = $_POST['contactMessage'];
 $cap = $_POST['contactCaptcha'];
 if($name != '' AND $email != '' AND $message != '' AND $cap == 2)
 {
-$url = 'https://api.sendgrid.com/';
-$user = $user;
-$pass = $pass;
 
 $params = array(
     'api_user'  => $user,
