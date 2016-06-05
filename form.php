@@ -14,45 +14,54 @@ $message = $_POST['contactMessage'];
 $cap = $_POST['contactCaptcha'];
 if($name != '' AND $email != '' AND $message != '' AND $cap == 2)
 {
+$url = 'https://api.sendgrid.com/';
+$user = $user;
+$pass = $pass;
 
-$mail = new PHPMailer;
+$params = array(
+    'api_user'  => $user,
+    'api_key'   => $pass,
+    'to'        => 'kor746@sendgrid.com',
+    'subject'   => 'Contact Dan',
+    'html'      => '<html><head></head><body>Lol</body></html>',
+    'text'      => $message,
+    'from'      => $email,
+ );
 
-//$mail->SMTPDebug = 3;                          // Enable verbose debug output
 
-$mail->isSMTP();                                        // Set mailer to use SMTP 
-$mail->Host = 'smtp.sendgrid.net';             // Specify main/backup SMTP servers 
-$mail->SMTPAuth = true;                           // Enable SMTP authentication 
-$mail->Username = $user;    // SMTP username 
-$mail->Password = $pass;    // SMTP password 
-$mail->SMTPSecure = 'tls';                        // Enable TLS/SSL encryption 
-$mail->Port = 587;                                      // TCP port to connect to
+$request =  $url.'api/mail.send.json';
 
-$mail->From = $email; 
-$mail->FromName = $name; 
-$mail->addAddress('danlee746@hotmail.ca', 'Boss');     // Add a recipient
+// Generate curl request
+$session = curl_init($request);
+// Tell curl to use HTTP POST
+curl_setopt ($session, CURLOPT_POST, true);
+// Tell curl that this is the body of the POST
+curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+// Tell curl not to return headers, but do return the response
+curl_setopt($session, CURLOPT_HEADER, false);
+// Tell PHP not to use SSLv3 (instead opting for TLS)
+curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 
-$mail->WordWrap = 50;                              // Set word wrap to 50 characters 
-$mail->isHTML(true);                                  // Set email format to HTML
+// obtain response
+$response = curl_exec($session);
+curl_close($session);
 
-$mail->Subject = 'Here is the subject'; 
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+// print everything out
+print_r($response);
 
-if(!$mail->send()) { 
-    echo 'Message could not be sent.'; 
-    echo 'Mailer Error: ' . $mail->ErrorInfo; 
-} else { 
-    echo 'Message has been sent'; 
-}
+
 header('Location:index.html');
-
+echo "<script type='text/javascript'> document.getElementById('contact-warning').style.visibility = 'hidden';";
+echo "document.getElementById('contact-success').style.visibility = 'visible';</script>";
 }
 }
 else {
     
          
     header('Location:index.html');
-    echo "<script type= 'text/javascript'> document.getElementById('contact-success').style.visibility = 'hidden';";
-    echo "<script type= 'text/javascript'> document.getElementById('contact-warning').style.visibility = 'visible';</script>";
+    echo "<script type='text/javascript'> document.getElementById('contact-success').style.visibility = 'hidden';";
+    echo "document.getElementById('contact-warning').style.visibility = 'visible';</script>";
 }
 ?>
 
